@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philippine Laws on Gender & Sexuality</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon: #6b1f3a;
+    --maroon-dark: #3d0f20;
+    --maroon-mid: #8a2846;
+    --gold: #c9a84c;
+    --gold-light: #e2c67a;
+    --blush: #d4748e;
+    --cream: #faf5ee;
+    --text-dark: #1a0a10;
+    --text-light: #f9f0e8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--maroon-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon) 50%, #4a1228 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.15);
+    top: -200px; right: -200px;
+    animation: pulse 8s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.1);
+    bottom: -150px; left: -150px;
+    animation: pulse 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.05); opacity: 1; }
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text-light);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    margin-top: 1.5rem;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-tagline {
+    margin-top: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--gold-light);
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+    animation: scrollDrop 1.5s ease-in-out infinite;
+  }
+
+  @keyframes scrollDrop {
+    0%,100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.5); opacity: 0.3; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(61,15,32,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 0 2rem;
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    height: 60px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  nav a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.2s;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* ===== SECTIONS ===== */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid rgba(201,168,76,0.2);
+    margin: 0;
+  }
+
+  /* ===== OVERVIEW GRID ===== */
+  #overview { background: var(--maroon-dark); }
+
+  .laws-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .law-card {
+    background: var(--maroon-dark);
+    padding: 1.75rem;
+    transition: background 0.3s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .law-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .law-card:hover { background: rgba(107,31,58,0.6); }
+  .law-card:hover::before { height: 100%; }
+
+  .law-ra {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .law-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.3;
+  }
+
+  /* ===== SUMMARY CARDS ===== */
+  .summary-section {
+    background: linear-gradient(180deg, var(--maroon-dark), #2a0c1a);
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .summary-card {
+    background: rgba(107,31,58,0.3);
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 2rem;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .summary-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .summary-card-ra {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--maroon-dark);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .summary-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-light);
+  }
+
+  .summary-item { margin-bottom: 1rem; }
+
+  .summary-item-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+  }
+
+  .summary-item p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  /* ===== SCENARIOS ===== */
+  .scenarios-section { background: var(--maroon-dark); }
+
+  .scenario-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(201,168,76,0.15);
+    margin-bottom: 2px;
+  }
+
+  @media(max-width: 700px) {
+    .scenario-block { grid-template-columns: 1fr; }
+  }
+
+  .scenario-panel {
+    background: var(--maroon-dark);
+    padding: 2.5rem;
+  }
+
+  .scenario-panel.dark { background: #1e0510; }
+
+  .scenario-num {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--blush);
+    margin-bottom: 0.5rem;
+  }
+
+  .scenario-panel h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding-bottom: 1rem;
+  }
+
+  .scenario-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .scenario-panel p, .scenario-panel li {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.65;
+    margin-bottom: 0.35rem;
+  }
+
+  .scenario-panel ul { list-style: none; padding: 0; margin-bottom: 1.25rem; }
+  .scenario-panel ul li::before {
+    content: '→ ';
+    color: var(--gold);
+  }
+
+  .scenario-outcome {
+    background: rgba(201,168,76,0.08);
+    border-left: 3px solid var(--gold);
+    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.6;
+  }
+
+  /* ===== REFLECTION ===== */
+  .reflection-section {
+    background: linear-gradient(180deg, #1e0510, var(--maroon-dark));
+  }
+
+  .reflection-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  @media(max-width:700px) { .reflection-grid { grid-template-columns: 1fr; } }
+
+  .reflection-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2rem;
+    position: relative;
+  }
+
+  .reflection-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(201,168,76,0.1);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    line-height: 1;
+  }
+
+  .reflection-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .reflection-card p {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.7;
+  }
+
+  /* Issues grid */
+  .issues-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+  }
+
+  @media(max-width:900px) { .issues-grid { grid-template-columns: 1fr 1fr; } }
+  @media(max-width:600px) { .issues-grid { grid-template-columns: 1fr; } }
+
+  .issue-card {
+    background: rgba(138,40,70,0.2);
+    border: 1px solid rgba(212,116,142,0.2);
+    padding: 1.75rem;
+    transition: border-color 0.3s;
+  }
+
+  .issue-card:hover { border-color: var(--blush); }
+
+  .issue-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--blush);
+    margin-bottom: 0.75rem;
+  }
+
+  .issue-card p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.65;
+  }
+
+  /* ===== CTA ===== */
+  .cta-section {
+    text-align: center;
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(201,168,76,0.1) 0%, transparent 70%);
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .cta-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .cta-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,168,76,0.3);
+    padding: 2.5rem 2rem;
+    width: 240px;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .cta-card:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateY(-6px);
+  }
+
+  .cta-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .cta-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-card p {
+    font-size: 0.83rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .cta-quote {
+    margin-top: 4rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(201,168,76,0.7);
+    position: relative;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--maroon-dark);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  footer p {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.78rem;
+    line-height: 1.8;
+  }
+
+  footer .group {
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* animate on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-eyebrow">Philippine Laws on</p>
+  <h1>Gender &<br><em>Sexuality</em></h1>
+  <p class="hero-tagline">Protecting Rights · Promoting Equality · Building Justice</p>
+  <p class="hero-sub">Presented by: Pareja · Banguit · Saypan · Esteban · Malintad</p>
+  <span class="scroll-hint">Scroll</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#overview">Overview</a>
+    <a href="#summary">Summary</a>
+    <a href="#scenarios">Scenarios</a>
+    <a href="#reflection">Reflection</a>
+    <a href="#issues">Issues</a>
+    <a href="#action">Call to Action</a>
+  </div>
+</nav>
+
+<hr class="divider">
+
+<!-- OVERVIEW -->
+<div id="overview">
+<section>
+  <p class="section-label reveal">Laws Reviewed</p>
+  <h2 class="section-title reveal">Overview of <em>11 Laws</em></h2>
+  <div class="laws-grid reveal">
+    <div class="law-card"><div class="law-ra">RA 9710</div><div class="law-name">Magna Carta of Women</div></div>
+    <div class="law-card"><div class="law-ra">RA 6725</div><div class="law-name">Anti-Discrimination in Employment</div></div>
+    <div class="law-card"><div class="law-ra">RA 7192</div><div class="law-name">Women in Development Act</div></div>
+    <div class="law-card"><div class="law-ra">RA 7877</div><div class="law-name">Anti-Sexual Harassment Act</div></div>
+    <div class="law-card"><div class="law-ra">RA 7600</div><div class="law-name">Breastfeeding Act</div></div>
+    <div class="law-card"><div class="law-ra">RA 7322</div><div class="law-name">Maternity Leave Provision</div></div>
+    <div class="law-card"><div class="law-ra">RA 9262</div><div class="law-name">Anti-Violence Against Women & Children</div></div>
+    <div class="law-card"><div class="law-ra">RA 8353</div><div class="law-name">Anti-Rape Law</div></div>
+    <div class="law-card"><div class="law-ra">RA 7822</div><div class="law-name">Anti-Trafficking in Persons Act</div></div>
+    <div class="law-card"><div class="law-ra">RA 7688</div><div class="law-name">Women in Military Service</div></div>
+    <div class="law-card"><div class="law-ra">RA 10354</div><div class="law-name">Reproductive Health Law</div></div>
+    <div class="law-card"><div class="law-ra">SOGIE Bill</div><div class="law-name">Proposed Anti-Discrimination Bill</div></div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- SUMMARY -->
+<div id="summary" class="summary-section">
+<section>
+  <p class="section-label reveal">Summary of Laws</p>
+  <h2 class="section-title reveal">What Each <em>Law</em> Does</h2>
+  <div class="summary-grid">
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 9710</span>
+      <h3>Magna Carta of Women</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Comprehensive law guaranteeing equal rights for Filipino women in all areas of life.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>All Filipino women</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Eliminates systemic gender discrimination and ensures women's full participation in society.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 6725</span>
+      <h3>Anti-Discrimination in Employment</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Prohibits employers from discriminating based on gender in hiring, promotion, and pay.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Women workers in all employment sectors</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Ensures equal opportunity and pay for work of equal value.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 7192</span>
+      <h3>Women in Development Act</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Ensures women's equal access to resources, education, credit, and government services.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Filipino women, especially in rural areas</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Promotes women's economic empowerment and equitable development.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 7877</span>
+      <h3>Anti-Sexual Harassment Act</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Defines and penalizes sexual harassment in work, education, and training environments.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Employees, students, and trainees (any gender)</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Creates safe spaces and holds perpetrators accountable for abuse of power.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 7600</span>
+      <h3>Breastfeeding Act</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Promotes and protects breastfeeding rights of mothers in workplaces and health facilities.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Mothers and infants nationwide</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Supports child nutrition, maternal health, and work-life balance for new mothers.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 7322</span>
+      <h3>Maternity Leave Provision</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Grants female employees paid maternity leave for childbirth and miscarriage.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Female SSS members and government employees</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Protects maternal and infant health while securing women's employment rights.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 9262</span>
+      <h3>Anti-VAWC Law</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Criminalizes physical, psychological, sexual, and economic abuse against women and children.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Women and their children in intimate relationships</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Provides protection orders and legal remedies against domestic and intimate partner violence.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 8353</span>
+      <h3>Anti-Rape Law</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Reclassifies rape as a crime against persons, broadens definition, and increases penalties.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Rape survivors of any gender</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Recognizes rape as a serious human rights violation and strengthens survivor protection.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 7822</span>
+      <h3>Anti-Trafficking in Persons Act</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Criminalizes the recruitment, transport, and exploitation of persons for labor or sexual purposes.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Trafficking victims, especially women and children</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Addresses modern-day slavery and protects vulnerable Filipinos from exploitation.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 7688</span>
+      <h3>Women in Military Service</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Allows women to serve in the Armed Forces in non-combat and combat roles.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>Filipino women aspiring to serve in the military</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Breaks gender barriers in national defense and promotes equal opportunity in public service.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">RA 10354</span>
+      <h3>Reproductive Health Law</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Mandates universal access to contraception, reproductive health education, and maternal care.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>All Filipinos, especially women of reproductive age</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Upholds reproductive rights and reduces maternal mortality through informed family planning.</p></div>
+    </div>
+
+    <div class="summary-card reveal">
+      <span class="summary-card-ra">SOGIE Bill</span>
+      <h3>Proposed Anti-Discrimination Bill</h3>
+      <div class="summary-item"><div class="summary-item-label">What it does</div><p>Seeks to prohibit discrimination based on sexual orientation, gender identity, and expression.</p></div>
+      <div class="summary-item"><div class="summary-item-label">Protects</div><p>LGBTQIA+ individuals and the broader public</p></div>
+      <div class="summary-item"><div class="summary-item-label">Why it matters</div><p>Addresses systemic discrimination and promotes inclusive rights for marginalized communities.</p></div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- SCENARIOS -->
+<div id="scenarios" class="scenarios-section">
+<section>
+  <p class="section-label reveal">Real-Life Application</p>
+  <h2 class="section-title reveal"><em>Scenarios</em> in Practice</h2>
+
+  <div class="scenario-block reveal">
+    <div class="scenario-panel">
+      <div class="scenario-num">Scenario 01</div>
+      <h3>Workplace Harassment & Discrimination</h3>
+      <p class="scenario-label">The Situation</p>
+      <p style="margin-bottom:1.25rem">Maria, a nurse, was denied a promotion despite being the most qualified. Her male supervisor repeatedly makes inappropriate comments about her appearance and brushes off complaints.</p>
+      <p class="scenario-label">Laws Applied</p>
+      <ul>
+        <li>RA 7877 — supervisor's conduct constitutes harassment</li>
+        <li>RA 6725 — denial of promotion based on gender</li>
+        <li>RA 9710 — violation of equal rights in workplace</li>
+      </ul>
+      <div class="scenario-outcome">Maria may file a complaint with DOLE or the Civil Service Commission. The supervisor faces administrative and criminal liability.</div>
+    </div>
+    <div class="scenario-panel dark">
+      <div class="scenario-num">Scenario 02</div>
+      <h3>Domestic Violence & VAWC</h3>
+      <p class="scenario-label">The Situation</p>
+      <p style="margin-bottom:1.25rem">Ana and her children are subjected to physical and emotional abuse by her husband. He controls her finances, isolates her from family, and threatens harm if she tries to leave.</p>
+      <p class="scenario-label">Laws Applied</p>
+      <ul>
+        <li>RA 9262 — physical, psychological, and economic abuse</li>
+        <li>RA 9710 — right to security and freedom from violence</li>
+      </ul>
+      <div class="scenario-outcome">Ana can obtain a Barangay Protection Order (BPO) within 24 hours. A Temporary Protection Order (TPO) can be issued by the court, and the husband may face imprisonment.</div>
+    </div>
+  </div>
+
+  <div class="scenario-block reveal">
+    <div class="scenario-panel dark">
+      <div class="scenario-num">Scenario 03</div>
+      <h3>Human Trafficking & Exploitation</h3>
+      <p class="scenario-label">The Situation</p>
+      <p style="margin-bottom:1.25rem">Lina, 17, was lured by a recruiter promising overseas work. She was brought to another city and forced into commercial sexual exploitation, unable to leave or contact her family.</p>
+      <p class="scenario-label">Laws Applied</p>
+      <ul>
+        <li>RA 7822 — recruitment and exploitation of a minor</li>
+        <li>RA 9262 — violence and coercion</li>
+        <li>RA 9710 — right to protection from exploitation</li>
+      </ul>
+      <div class="scenario-outcome">Traffickers face life imprisonment. Lina is entitled to full support including shelter, counseling, and legal assistance from the government.</div>
+    </div>
+    <div class="scenario-panel">
+      <div class="scenario-num">Scenario 04</div>
+      <h3>LGBTQIA+ Discrimination (SOGIE)</h3>
+      <p class="scenario-label">The Situation</p>
+      <p style="margin-bottom:1.25rem">Carlos, a gay employee, was fired when his employer discovered his sexual orientation. He was also denied rental housing and faced public ridicule with no legal recourse.</p>
+      <p class="scenario-label">Laws Applied</p>
+      <ul>
+        <li>SOGIE Bill (Proposed) — would prohibit this type of discrimination</li>
+        <li>Current Gap: No national SOGIE law exists</li>
+        <li>Local ordinances in some LGUs may offer partial protection</li>
+      </ul>
+      <div class="scenario-outcome">This scenario underscores the urgent need to pass the SOGIE Bill nationally. Without it, LGBTQIA+ Filipinos remain vulnerable to discrimination.</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- REFLECTION – How Laws Promote Equality -->
+<div id="reflection" class="reflection-section">
+<section>
+  <p class="section-label reveal">Critical Reflection</p>
+  <h2 class="section-title reveal">How These Laws Promote <em>Gender Equality</em></h2>
+  <div class="reflection-grid">
+    <div class="reflection-card reveal">
+      <div class="reflection-num">01</div>
+      <h3>Legal Recognition of Rights</h3>
+      <p>Laws like RA 9710 and RA 10354 formally establish that women have the same rights as men in education, employment, healthcare, and government participation — transforming social norms into enforceable standards.</p>
+    </div>
+    <div class="reflection-card reveal">
+      <div class="reflection-num">02</div>
+      <h3>Protection from Gender-Based Violence</h3>
+      <p>RA 9262, RA 8353, and RA 7822 criminalize violence, rape, and trafficking. These laws send a clear message that gender-based harm is not acceptable and that survivors deserve justice and support.</p>
+    </div>
+    <div class="reflection-card reveal">
+      <div class="reflection-num">03</div>
+      <h3>Economic & Career Empowerment</h3>
+      <p>RA 6725, RA 7192, RA 7322, and RA 7688 remove barriers that kept women out of workplaces, military service, and financial systems — enabling economic self-sufficiency and professional growth.</p>
+    </div>
+    <div class="reflection-card reveal">
+      <div class="reflection-num">04</div>
+      <h3>Safe & Inclusive Spaces</h3>
+      <p>RA 7877 and RA 7600 protect women in environments like offices and hospitals. The proposed SOGIE Bill would extend these protections to LGBTQIA+ individuals, fostering a society where all genders feel safe.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<hr class="divider">
+
+<!-- ISSUES -->
+<div id="issues" style="background: linear-gradient(180deg, #1e0510, var(--maroon-dark));">
+<section>
+  <p class="section-label reveal">Critical Reflection</p>
+  <h2 class="section-title reveal">Issues That <em>Still Exist</em></h2>
+  <div class="issues-grid">
+    <div class="issue-card reveal">
+      <h4>Low Reporting & Impunity</h4>
+      <p>Many victims of sexual harassment, rape, and VAWC do not report due to shame, fear of retaliation, or distrust in authorities. Perpetrators often go unpunished, undermining the deterrent effect of the law.</p>
+    </div>
+    <div class="issue-card reveal">
+      <h4>SOGIE Bill Not Yet Passed</h4>
+      <p>Despite decades of advocacy, the SOGIE Bill remains unenacted. LGBTQIA+ Filipinos continue to face discrimination in employment, housing, and public life with minimal legal recourse at the national level.</p>
+    </div>
+    <div class="issue-card reveal">
+      <h4>Weak Implementation</h4>
+      <p>Many laws lack the budget, trained personnel, or political will for proper enforcement. Protection orders under RA 9262 are sometimes ignored; traffickers evade justice; harassers face minimal consequences.</p>
+    </div>
+    <div class="issue-card reveal">
+      <h4>Persistent Cultural Barriers</h4>
+      <p>Patriarchal norms, victim-blaming, and gender stereotypes limit the effectiveness of laws. Women in rural areas and indigenous communities often have limited awareness of or access to legal protections.</p>
+    </div>
+    <div class="issue-card reveal">
+      <h4>Reproductive Health Gaps</h4>
+      <p>RA 10354 faces resistance from religious groups and local officials who block access to contraceptives in some areas, leaving many women — especially the poor — without the family planning services they are legally entitled to.</p>
+    </div>
+    <div class="issue-card reveal">
+      <h4>Trafficking Remains Rampant</h4>
+      <p>Despite RA 7822, the Philippines remains a major source country for trafficking victims. Online recruitment, corruption among officials, and poverty continue to fuel exploitation, especially of women and children.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- CTA -->
+<div id="action" class="cta-section">
+  <h2>Laws are only as powerful<br>as the people who uphold them.</h2>
+  <div class="cta-cards">
+    <div class="cta-card">
+      <span class="cta-num">1</span>
+      <h3>Know Your Rights</h3>
+      <p>Read and understand the laws that protect you and your community.</p>
+    </div>
+    <div class="cta-card">
+      <span class="cta-num">2</span>
+      <h3>Speak Up</h3>
+      <p>Report abuse, discrimination, and violations. Encourage survivors to seek help.</p>
+    </div>
+    <div class="cta-card">
+      <span class="cta-num">3</span>
+      <h3>Advocate for SOGIE</h3>
+      <p>Support legislation that protects LGBTQIA+ Filipinos from discrimination.</p>
+    </div>
+  </div>
+  <p class="cta-quote">"Ang bawat batas ay isang hakbang tungo sa pagkakapantay-pantay. Ang bawat aksyon ay isang pagbabago."</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="group">Group 3 — Gender & Society</p>
+  <p>Pareja · Banguit · Saypan · Esteban · Malintad</p>
+  <p style="margin-top:1rem">Sources: Official Gazette of the Philippines · Philippine Commission on Women · Commission on Human Rights Philippines</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
